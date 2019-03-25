@@ -108,7 +108,7 @@
 
 
         ol {
-            padding: 0 20px;
+            padding: 20px;
         }
 
         main article footer {
@@ -165,25 +165,82 @@
         .tooltip:hover figure {
             display: block;
             width: 500px;
-            /*max-width: 500px;*/
             position: absolute;
             top: 20%;
         }
 
+        .accordion-trigger {
+            cursor: pointer;
+            margin: 10px 0;
+            padding: 5px 0 5px 15px;
+            align-self: stretch;
+        }
+
+        .rollDown {
+            background-color: #dbebfa;
+        }
+
+        .rollUp {
+            background-color: #5baffd;
+        }
+
+        .rollDown:before {
+            content:"";
+            display: inline-block;
+            position: relative;
+            top:3px;
+            width:  20px;
+            height: 20px;
+
+            padding-right: 10px;
+            background: url(img/icons/icons8-plus.svg) no-repeat top left;
+            background-size: contain;    
+        }
+
+        .rollUp:before {
+            content:"";
+            display: inline-block;
+            position: relative;
+            top:3px;
+            width:  20px;
+            height: 20px;
+
+            padding-right: 10px;
+            background: url(img/icons/icons8-decline.svg) no-repeat top left;
+            background-size: contain;
+        }
+
+        .accordion-content {
+        }
+
+        .hide {
+            display: none;
+        }
+
+        #maxPercentDrawdown, #looseProfitRatio, #stopLoseAmountInPTS {
+            width: 100px;
+            height: 28px;
+            font-size: 26px;
+        }
+
+        .text24 {
+            font-size: 26px;
+        }
+
         .article-box-1 {
-            background-color: rgb(194, 194, 194);
+            
         }
 
         .article-box-2 {
-            background-color: silver;
+            
         }
 
         .article-box-3 {
-            background-color: seashell;
+            
         }
 
         .article-box-4 {
-            background-color: cornsilk;
+            
         }
     </style>
 </head>
@@ -195,12 +252,12 @@
     <main>
         <article class="article-box-1">
             <header>
-                <h2>Анализ рыночной ситуации</h2>
-                <div>Определить рыночную ситуацию по этой схеме сначала на старшем <abbr title=""
+                <h2 id="marketAnaliz" class="accordion-trigger rollDown">Анализ рыночной ситуации</h2>
+                <div name="marketAnaliz" class="accordion-content">Определить рыночную ситуацию по этой схеме сначала на старшем <abbr title=""
                         name="Таймфрейм">ТФ</abbr>(1h) потом на рабочем(5min)</div>
             </header>
 
-            <section>
+            <section name="marketAnaliz" class="accordion-content hide">
                 <div class="left-column">
                     <h3>Импульс</h3>
                     <ol>
@@ -232,14 +289,7 @@
                     <span>Набор объёма импульса или накопления, импульсный выход цены в противоположную сторону, пробой
                         одной или нескольких <abbr title=""
                             name="Область Силы - область на графике которая вызывает наибольший интерес у участников рынка. Обычно это Мин и Максимумы">ОС</abbr></span>
-                            <h3>Правила работы в импульсе</h3>
-                            <ol>
-                                <li>ТРЕНД ПРОДОЛЖАЕТСЯ ДО ТЕХ ПОР, ПОКА НЕ ПОКАЖЕТ ЯВНЫЕ ПРИЗНАКИ СЛОМА;</li>
-                                <li>В ФАЗЕ ИМПУЛЬСА РАБОТА ВЕДЁТСЯ ТОЛЬКО В СТОРОНУ ИМПУЛЬСА;</li>
-                                <li>НЕ ПРОДАВАТЬ НА УРОВНЕ ПОДДЕРЖКИ</li>
-                                <li>НЕ ПОКУПАТЬ НА УРОВНЕ СОПРОТИВЛЕНИЯ</li>
-                                <li>НЕ ОТКРЫВАТЬ СДЕЛОК В СЕРЕДИНЕ БОКОВИКА</li>
-                            </ol>
+                            
                 </div>
                 <div class="right-column">
                     <h3>Баланс</h3>
@@ -289,16 +339,31 @@
                     <span><abbr title=""
                             name="Ситуация когда цена выходит за границы диапазона и формирует стоповый объём за пределами границ баланса, затем начинается движение в сторону импульса. При обратном развароте цены, при обратном развороте цены, линия поддержки уже будет хорошим уровнем от которого нужно совершать сделки.">Перепозиционирование</abbr>
                         границы баланса, пружина перед границей</span>
+                    
+
+                </div>
+            </section>
+            <section>
+                <div class="left-column">
+                        <h3>Правила работы в импульсе</h3>
+                        <ol>
+                            <li>ТРЕНД ПРОДОЛЖАЕТСЯ ДО ТЕХ ПОР, ПОКА НЕ ПОКАЖЕТ ЯВНЫЕ ПРИЗНАКИ СЛОМА;</li>
+                            <li>В ФАЗЕ ИМПУЛЬСА РАБОТА ВЕДЁТСЯ ТОЛЬКО В СТОРОНУ ИМПУЛЬСА;</li>
+                            <li>НЕ ПРОДАВАТЬ НА УРОВНЕ ПОДДЕРЖКИ</li>
+                            <li>НЕ ПОКУПАТЬ НА УРОВНЕ СОПРОТИВЛЕНИЯ</li>
+                            <li>НЕ ОТКРЫВАТЬ СДЕЛОК В СЕРЕДИНЕ БОКОВИКА</li>
+                        </ol>
+                </div>
+                <div class="right-column">
                     <h3>Правила работы в Балансе (Боковике)</h3>
                     <ol>
                         <li>ЛУЧШИЕ ТОРГОВЫЕ ВОЗМОЖНОСТИ ПРИ РАБОТЕ В БАЛАНСЕ ВОЗНИКАЮТ НА ЕГО ГРАНИЦАХ</li>
                         <li>РАБОТАТЬ ВНУТРИ БАЛАНСА ПРОТИВ ИМПУЛЬСА - ЗАПРЕЩЕНО</li>
                         <li>БАЛАНС МЛАДШЕГО <abbr title="" name="Таймфрейм">ТФ</abbr> ЧАСТО ЯВЛЯЕТСЯ ПРОТОРГОВКОЙ СТОРШЕГО ТФ</li>
                     </ol>
-
                 </div>
             </section>
-            <footer>
+            <footer name="marketAnaliz" class="accordion-content hide">
                 <div>Определить вероятные направления движения цены и уровни, до которых она дойдёт</div>
                 <abbr title="" name="наиболее вероятное движение цены">Приоритетный</abbr><abbr title="" name="менее вероятное движение цены">Альтернативный</abbr>
                 <div>Определить на графике места с наибольшим интересом</div>
@@ -310,8 +375,8 @@
             <header>
                 <h2>Точки входа</h2>
             </header>
-            <h3><abbr title="" name="Точка входа">ТВХ</abbr> от уровня стопового объёма</h3>
-            <section>
+            <h3 id="tvxOtStopovogo" class="accordion-trigger rollDown"><abbr title="" name="Точка входа">ТВХ</abbr> от уровня стопового объёма</h3>
+            <section name="tvxOtStopovogo" class="accordion-content hide">
 
                 <div class="left-column">
                     <h4>Выход из баланса вверх</h4>
@@ -342,8 +407,8 @@
 
                 </div>
             </section>
-            <h3><abbr title="" name="Точка входа">ТВХ</abbr> от уровня перепозиционирования со стоповым объёмом</h3>
-            <section>
+            <h3 id="tvxOtPerepoz" class="accordion-trigger rollDown"><abbr title="" name="Точка входа">ТВХ</abbr> от уровня перепозиционирования со стоповым объёмом</h3>
+            <section name="tvxOtPerepoz" class="accordion-content hide">
 
                 <div class="left-column">
                     <h4>Выход из баланса вверх</h4>
@@ -384,8 +449,8 @@
 
                 </div>
             </section>
-            <h3><abbr title="" name="Точка входа">ТВХ</abbr> от уровня перепозиционирования без cтопового объёма</h3>
-            <section>
+            <h3 id="tvxOtPerepozBezStopovogo" class="accordion-trigger rollDown"><abbr title="" name="Точка входа">ТВХ</abbr> от уровня перепозиционирования без cтопового объёма</h3>
+            <section name="tvxOtPerepozBezStopovogo" class="accordion-content hide">
 
                 <div class="left-column">
                     <h4>Выход из баланса вверх</h4>
@@ -432,8 +497,8 @@
 
                 </div>
             </section>
-            <h3><abbr title="" name="Точка входа">ТВХ</abbr> в импульсе - "Агрессивный участник"</h3>
-            <section>
+            <h3 id="tvxAgressivn" class="accordion-trigger rollDown"><abbr title="" name="Точка входа">ТВХ</abbr> в импульсе - "Агрессивный участник"</h3>
+            <section name="tvxAgressivn" class="accordion-content hide">
 
                 <div class="left-column">
                     <h4>Выход из баланса вверх</h4>
@@ -485,8 +550,8 @@
 
                 </div>
             </section>
-            <h3><abbr title="" name="Точка входа">ТВХ</abbr> в импульсе - "Сильный участник"</h3>
-            <section>
+            <h3 id="tvxSilniy" class="accordion-trigger rollDown"><abbr title="" name="Точка входа">ТВХ</abbr> в импульсе - "Сильный участник"</h3>
+            <section name="tvxSilniy" class="accordion-content hide">
 
                 <div class="left-column">
                     <h4>Выход из баланса вверх</h4>
@@ -556,13 +621,13 @@
 
                 </div>
             </section>
-            <h3><abbr title="" name="Точка входа">ТВХ</abbr> - пробой одной <abbr title=""
+            <h3 id="tvxProboyNeuda4niyTest"  class="accordion-trigger rollDown"><abbr title="" name="Точка входа">ТВХ</abbr> - пробой одной <abbr title=""
                     name="Область Силы - область на графике которая выывает наибольший интерес у участников рынка. Обычно это Мин и Макс уровней, места повышенной ликвидности">ОС</abbr>.
                 Неудачный тест первой трендовой <abbr title=""
                     name="Область Силы - область на графике которая выывает наибольший интерес у участников рынка. Обычно это Мин и Макс уровней, места повышенной ликвидности">ОС</abbr>,
                 без признаков силы противоположной стороны.
             </h3>
-            <section>
+            <section name="tvxProboyNeuda4niyTest" class="accordion-content hide">
 
                 <div class="left-column">
                     <h4>Выход из баланса вверх</h4>
@@ -614,10 +679,10 @@
 
                 </div>
             </section>
-            <h3><abbr title="" name="Точка входа">ТВХ</abbr> - пробой одной <abbr title=""
+            <h3 id="tvxProboySbrosPosojirov" class="accordion-trigger rollDown"><abbr title="" name="Точка входа">ТВХ</abbr> - пробой одной <abbr title=""
                     name="Область Силы - область на графике которая вызывает наибольший интерес у участников рынка. Обычно это Мин и Максимумы">ОС</abbr>.
                 Сброс лишних пассажиров.</h3>
-            <section>
+            <section name="tvxProboySbrosPosojirov" class="accordion-content hide">
 
                 <div class="left-column">
                     <h4>Выход из баланса вверх</h4>
@@ -675,10 +740,10 @@
                     </figure>
                 </div>
             </section>
-            <h3><abbr title="" name="Точка входа">ТВХ</abbr> - пробой одной <abbr title=""
+            <h3 id="tvxProboyTormojenie" class="accordion-trigger rollDown"><abbr title="" name="Точка входа">ТВХ</abbr> - пробой одной <abbr title=""
                     name="Область Силы - область на графике которая вызывает наибольший интерес у участников рынка. Обычно это Мин и Максимумы">ОС</abbr>.
                 Объёмное накопление с признаками силы противоположной стороны.</h3>
-            <section>
+            <section name="tvxProboyTormojenie" class="accordion-content hide">
 
                 <div class="left-column">
                     <h4>Выход из баланса вверх</h4>
@@ -746,21 +811,23 @@
         </article>
         <article class="article-box-3">
             <header>
-                <h2>Управление рисками</h2>
+                <h2 id="riskRevaed" class="accordion-trigger rollDown">Управление рисками</h2>
             </header>
-            <section>
+            <section name="riskRevaed" class="accordion-content hide">
                     <div class="left-column">
                             Коэффициент рассчитывается математически путем деления суммы прибыли, ожидаемой трейдером после закрытия позиции (т.е. вознаграждение) на сумму, которую он может потерять, если цена движется в противоположном направлении. 
                             Хорошее соотношение от 1:2
                     </div>
             </section>
-            <h3>Объём позиции</h3>
-            <section>
+            <h3 name="riskRevaed" class="accordion-content hide">Объём позиции</h3>
+            <section name="riskRevaed" class="accordion-content hide">
                 
                     <div class="left-column">
-                            ( <input type="number" name="max_percent_drawdown" id="maxPercentDrawdown"> / ( <input type="number" name="ratio_of_loose_to_profit" id="looseProfitRatio">  * 2) ) / <input type="number" name="stop_lose_amount_in_PTS" id="stopLoseAmountInPTS">
+                        <span class="text24">
+                            ( <input type="number" name="max_percent_drawdown" id="maxPercentDrawdown" > / ( <input type="number" name="ratio_of_loose_to_profit" id="looseProfitRatio">  * 2) ) / <input type="number" name="stop_lose_amount_in_PTS" id="stopLoseAmountInPTS">
+                        </span>
                             <br>
-                            <h4>Результат: Не заполнены поля</h4>
+                            <h4 id="riskResults">Результат: Не заполнены поля</h4>
                     </div>
                     <div class="right-column">
                             <figure>
@@ -774,10 +841,9 @@
         </article>
         <article class="article-box-4">
             <header>
-                <h2>Фиксация результатов торговли</h2>
+                <h2 id="fixResults" class="accordion-trigger rollDown">Фиксация результатов торговли</h2>
             </header>
-            <section>
-                   
+            <section name="fixResults" class="accordion-content hide">
                     <div class="left-column"> <ol>
                             <li>Зафиксировать факт наличия ошибок при торговом процессе, если они есть, то какие именно и в чем их причина.</li>
                             <li>Сохранить скрины с разметкой : <br>
@@ -792,5 +858,51 @@
             <footer></footer>
         </article>
     </main>
+    <script>
 
+    //Слайдер
+    var accordTriger = document.body.querySelectorAll(".accordion-trigger");
+    accordTriger.forEach( accordTrigerEl => {
+         accordTrigerEl.addEventListener('click', accordionTriger)
+    })
+
+    function accordionTriger(event){
+        const accordContent = document.body.querySelectorAll(".accordion-content");
+        
+        event.target.classList.toggle('rollUp');
+
+        return accordContent.forEach((item, index)=>{
+        if(item.getAttribute('name') === event.target.id) item.classList.toggle('hide');
+        } )
+    }
+
+    //Управление рисками
+    const inputElemsArr = ['maxPercentDrawdown', 'looseProfitRatio', 'stopLoseAmountInPTS'];
+    const result = document.getElementById('riskResults');
+    document.getElementById('maxPercentDrawdown').value = localStorage.getItem('maxPercentDrawdown') || '';
+    document.getElementById('looseProfitRatio').value = localStorage.getItem('looseProfitRatio') || '';
+
+    inputElemsArr.forEach(item=> {
+        document.getElementById(item).addEventListener('keyup', risckRewardCalculation)
+    })
+
+    function risckRewardCalculation (){
+        const maxPercentDrawdown    =  +document.getElementById('maxPercentDrawdown').value;
+        const looseProfitRatio      =  +document.getElementById('looseProfitRatio').value;
+        const stopLoseAmountInPTS   =  +document.getElementById('stopLoseAmountInPTS').value;
+        var volumeResult = 0;
+
+        if(maxPercentDrawdown && looseProfitRatio && stopLoseAmountInPTS){
+            volumeResult = (maxPercentDrawdown / (looseProfitRatio * 2)) / stopLoseAmountInPTS;
+            result.innerText = `Результат: ${volumeResult}`
+            localStorage.setItem('maxPercentDrawdown',maxPercentDrawdown);
+            localStorage.setItem('looseProfitRatio',looseProfitRatio)
+        }else{
+            return result.innerText = 'Результат: Не заполнены поля'
+        }
+    }
+
+
+    </script>
+    </body>
 </html>
